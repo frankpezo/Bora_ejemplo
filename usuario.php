@@ -35,24 +35,37 @@
 
 
 //5. Para conseguir el usuario e iniciar sesión
-public function login(string $usuario, string $contra){
+/*public function login(string $usuario,  $contra){
       //Pasamos las variables
-      $this->strUsuario=$usuario;
-      $this->strContra = $contra;
-
+    // $contra= hash('512', $contra);
      $sql ="SELECT * from bora.usuarios where nombreuser= :usuario AND contrauser= :contra";
      $log = $this->conexion->prepare($sql);
      $log->execute(array(
-         ':usuario' => $this->strUsuario,
-         ':contra'=>  $this->strContra
+         ':usuario' =>$usuario,
+         ':contra'=> $contra
          
      ));
 
      $result = $log->fetch(PDO::FETCH_ASSOC);
+     return  $result;   
+    } */
 
-    return $result;
-   
+    public function login(string $usuario,  $contra){
+      //Pasamos las variables
+    
+     $sql ="SELECT * from bora.usuarios where nombreuser= :usuario AND contrauser= :contra";
+     $log = $this->conexion->prepare($sql);
+     $log->execute(array(
+         ':usuario' =>$usuario,
+         ':contra'=> $contra
+         
+     ));
+
+     $result = $log->fetch(PDO::FETCH_ASSOC);
+     return  $result;   
     } 
+
+   
 
 
 

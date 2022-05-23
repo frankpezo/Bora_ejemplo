@@ -16,15 +16,15 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     //1.1. Traemos los campos del formulario
      $usuario = filter_var(strtolower($_POST['usuario']), FILTER_SANITIZE_STRING);
      $contra = $_POST['contra'];
-
+     $contra=hash('sha512', $contra);
      //Hasheamos la contraseña
-     $contraHash=hash('sha512', $contra);
+   
 
      
 
 
      //2. Comprobamos que los campos no estén vacíos. 
-     if(empty($usuario) or empty($contra)){
+     if(empty($usuario) or empty($contra) ){
           $errores .= '<li>Los campos no pueden estar vacíos </li>';
      
         }else{

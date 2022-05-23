@@ -24,6 +24,7 @@
               //3.1. Encriptamos la contraseña
               $contra= hash('sha512', $contra);
               $contraDos= hash('sha512', $contraDos);
+             
 
               //3.2. Realizamos la comprabación si la contraseña coincide en ambos campos
               if($contra != $contraDos){
