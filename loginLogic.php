@@ -18,7 +18,11 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
      $contra = $_POST['contra'];
      //$contra=hash('sha512', $contra);
      //Hasheamos la contraseña
+<<<<<<< HEAD
    
+=======
+     $contra=hash('sha512', $contra);
+>>>>>>> 8c90d594708a14a75c6795669bec5bcd688420a3
 
      
 
